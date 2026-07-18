@@ -88,6 +88,10 @@
     font-size:clamp(2.1rem,4.2vw,3.4rem);font-weight:600;line-height:1.08;color:#fff;margin-bottom:24px;
   }
   .hero h1 em{font-style:italic;font-family:'Newsreader',serif;color:var(--amber);font-weight:500;}
+  .hero p.tagline{
+    font-family:'IBM Plex Mono',monospace;font-size:0.85rem;text-transform:uppercase;letter-spacing:0.08em;
+    color:var(--amber);margin-bottom:18px;
+  }
   .hero p.lead{
     font-size:1.12rem;color:var(--slate-cool);max-width:46ch;margin-bottom:34px;
   }
@@ -132,6 +136,7 @@
   .section-head .eyebrow{color:var(--forest);}
   .section-head .eyebrow::before{background:var(--forest);}
   .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;}
+  .section-intro{margin-top:16px;font-size:1.02rem;color:var(--slate-warm);}
 
   /* ---------- Problem grid ---------- */
   .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-warm);border:1px solid var(--line-warm);}
@@ -181,8 +186,8 @@
 
   /* ---------- Stats ---------- */
   .stats{background:var(--paper-2);}
-  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;}
-  @media(max-width:720px){.stats-grid{grid-template-columns:1fr;gap:36px;}}
+  .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px 32px;}
+  @media(max-width:720px){.stats-grid{grid-template-columns:1fr;gap:32px;}}
   .stat-num{font-family:'IBM Plex Mono',monospace;font-size:2.6rem;font-weight:600;color:var(--forest);line-height:1;}
   .stat-label{margin-top:10px;font-size:0.95rem;color:var(--slate-warm);max-width:28ch;}
   .stats-note{margin-top:40px;font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--slate-warm);opacity:0.8;}
@@ -236,7 +241,8 @@
     <div>
       <div class="eyebrow">Planification de tournées B2B</div>
       <h1>Chaque visite compte.<br>Chaque <em>kilomètre</em> aussi.</h1>
-      <p class="lead">WinWin construit l'itinéraire optimal de vos équipes terrain, jour après jour — pour visiter plus de clients, sans passer plus de temps sur la route.</p>
+      <p class="tagline">Tout le monde y gagne.</p>
+      <p class="lead">WinWin construit l'itinéraire optimal de vos équipes terrain, jour après jour — pour visiter plus de clients, sans passer plus de temps sur la route, ou en démarches administratives.</p>
       <div class="btn-row">
         <a href="#contact" class="btn-primary">Demander une démo</a>
         <a href="#fonctionnalites" class="btn-secondary">Voir comment ça marche</a>
@@ -264,6 +270,7 @@
     <div class="section-head reveal">
       <div class="eyebrow">Le constat</div>
       <h2>Le planning terrain se fait encore à l'instinct</h2>
+      <p class="section-intro">Même en s'organisant du mieux, on n'est jamais à l'abri d'un lapin, d'une urgence à caser, ou d'un rendez-vous qui doit être reporté.</p>
     </div>
     <div class="problem-grid reveal">
       <div class="problem-card">
@@ -274,7 +281,7 @@
       <div class="problem-card">
         <div class="glyph">?</div>
         <h3>Des visites qui glissent</h3>
-        <p>Les clients à relancer sont notés dans un carnet, un tableur, une mémoire — et finissent par passer entre les mailles.</p>
+        <p>Les clients à relancer sont notés dans un carnet, un tableur, une mémoire — et finissent par passer entre les mailles. Dès qu'un créneau se libère entre deux rendez-vous, WinWin les repère et vous les propose pour la prochaine tournée.</p>
       </div>
       <div class="problem-card">
         <div class="glyph">↻</div>
@@ -296,14 +303,14 @@
       <div class="feature-text">
         <div class="feature-tag">01 — Itinéraire</div>
         <h3>L'ordre de passage optimal, calculé pour vous</h3>
-        <p>WinWin réordonne automatiquement les visites du jour selon la localisation, les créneaux disponibles et les priorités clients — sans que vous ayez à y penser.</p>
+        <p>WinWin propose automatiquement des visites entre vos rendez-vous positionnés, selon la localisation, les créneaux disponibles et les priorités clients — sans que vous ayez à y penser.</p>
       </div>
       <div class="mockup">
         <div class="bar"><span></span><span></span><span></span></div>
-        <div class="mockup-row"><span>08:30 — Pharmacie du Marché</span><span class="badge">Prio</span></div>
-        <div class="mockup-row optim"><span>10:15 — Pharmacie Saint-Loubès</span><span class="badge">-12 min</span></div>
-        <div class="mockup-row optim"><span>13:40 — Pharmacie des Halles</span><span class="badge">-8 min</span></div>
-        <div class="mockup-row"><span>16:20 — Pharmacie Rive Droite</span><span class="badge">Prio</span></div>
+        <div class="mockup-row"><span>08:30 — Pharmacie A</span><span class="badge">Prio</span></div>
+        <div class="mockup-row optim"><span>10:15 — Pharmacie B</span><span class="badge">-12 min</span></div>
+        <div class="mockup-row optim"><span>13:40 — Pharmacie C</span><span class="badge">-8 min</span></div>
+        <div class="mockup-row"><span>16:20 — Pharmacie D</span><span class="badge">Prio</span></div>
       </div>
     </div>
 
@@ -343,19 +350,26 @@
     </div>
     <div class="stats-grid reveal">
       <div>
-        <div class="stat-num">↓</div>
-        <div class="stat-label">Moins de trajets à vide entre deux rendez-vous mal enchaînés</div>
+        <div class="stat-num">+</div>
+        <div class="stat-label">D'optimisation des déplacements</div>
       </div>
       <div>
-        <div class="stat-num">↑</div>
-        <div class="stat-label">Plus de créneaux disponibles pour des visites supplémentaires</div>
+        <div class="stat-num">+</div>
+        <div class="stat-label">De rentabilité</div>
       </div>
       <div>
-        <div class="stat-num">0</div>
-        <div class="stat-label">Ressaisie manuelle pour reconstituer l'activité de la semaine</div>
+        <div class="stat-num">+</div>
+        <div class="stat-label">De commerciaux épanouis</div>
+      </div>
+      <div>
+        <div class="stat-num">+</div>
+        <div class="stat-label">De confort de travail au quotidien</div>
+      </div>
+      <div>
+        <div class="stat-num">+</div>
+        <div class="stat-label">De temps pour le cœur de métier, moins pour l'administratif</div>
       </div>
     </div>
-    <p class="stats-note">Chiffres réels à intégrer une fois vos premiers utilisateurs équipés — cette section est prête à recevoir vos données.</p>
   </div>
 </section>
 
@@ -419,7 +433,7 @@
       'Message:\n' + message
     );
     // TODO: remplacer par votre adresse email de contact
-    window.location.href = 'mailto:mattysene@gmail.com?subject=' + subject + '&body=' + body;
+    window.location.href = 'mailto:contact@winwinapp.fr?subject=' + subject + '&body=' + body;
   });
 </script>
 
