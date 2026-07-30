@@ -181,6 +181,14 @@
   .price-card li::before{content:"✓"; color:var(--tournee-deep); font-weight:700; flex-shrink:0;}
   .pricing-note{margin-top:28px; font-size:13.5px; color:var(--ink-dark-soft); display:flex; gap:22px; flex-wrap:wrap;}
   .pricing-note b{color:var(--ink-dark);}
+  .releve-toggle{
+    display:flex; align-items:flex-start; gap:9px; font-size:12.5px; color:var(--ink-dark-soft); cursor:pointer;
+    padding:10px 12px; background:#F4F1E8; border:1px dashed var(--line-light); border-radius:9px; margin-bottom:18px;
+  }
+  .releve-toggle input{ margin-top:2px; accent-color:var(--releve-navy); cursor:pointer; flex-shrink:0; }
+  .releve-toggle span{ line-height:1.4; }
+  .price-card.releve-active{ border-color:var(--releve-navy); }
+  .price-card.releve-active .releve-toggle{ background:#EAF1F9; border-style:solid; border-color:var(--releve-blue); color:var(--releve-navy); font-weight:600; }
 
   /* ---------- Contact ---------- */
   .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
@@ -395,23 +403,27 @@
     <div class="section-head">
       <div class="eyebrow">Tarifs</div>
       <h2>Un abonnement par utilisateur, sans engagement</h2>
+      <p style="color:var(--ink-dark-soft); font-size:14.5px; margin-top:10px;">Les tarifs ci-dessous couvrent TournéeApp. Ajoute Relevé Prix en option sur n'importe quel niveau.</p>
     </div>
     <div class="pricing-grid">
-      <div class="price-card">
+      <div class="price-card" data-base="19">
         <div class="tier">Essentiel</div>
-        <div class="amount">19€ <span>/ mois / utilisateur</span></div>
-        <div class="sub">TournéeApp + Relevé Prix, les fonctions clés</div>
+        <div class="amount"><span class="amount-num">19</span>€ <span>/ mois / utilisateur</span></div>
+        <div class="sub">TournéeApp, les fonctions clés</div>
         <ul>
           <li>Base clients, Prochain RDV, Ma semaine, Agenda</li>
           <li>Export CSV générique</li>
-          <li>Relevé Prix : analyse photo IA + historique</li>
           <li>Support par email</li>
         </ul>
+        <label class="releve-toggle">
+          <input type="checkbox" class="releve-checkbox" data-price="9">
+          <span>+ Ajouter Relevé Prix (+9€/mois/utilisateur)</span>
+        </label>
         <a href="#contact" class="btn btn-dark-outline">Commencer</a>
       </div>
-      <div class="price-card featured">
+      <div class="price-card featured" data-base="35">
         <div class="tier">Pro</div>
-        <div class="amount">35€ <span>/ mois / utilisateur</span></div>
+        <div class="amount"><span class="amount-num">35</span>€ <span>/ mois / utilisateur</span></div>
         <div class="sub">Pour une équipe qui veut aller plus vite</div>
         <ul>
           <li><b>Tout Essentiel, plus :</b></li>
@@ -419,11 +431,14 @@
           <li>Réservation en ligne + relances automatiques</li>
           <li>Offres commerciales avec suivi des réponses</li>
           <li>Navigation Waze / Google Maps intégrée</li>
-          <li>Relevé Prix : vue superviseur multi-utilisateurs</li>
         </ul>
+        <label class="releve-toggle">
+          <input type="checkbox" class="releve-checkbox" data-price="9">
+          <span>+ Ajouter Relevé Prix, avec supervision multi-utilisateurs (+9€/mois/utilisateur)</span>
+        </label>
         <a href="#contact" class="btn btn-tournee">Commencer</a>
       </div>
-      <div class="price-card">
+      <div class="price-card" data-base="">
         <div class="tier">Entreprise</div>
         <div class="amount">Sur devis</div>
         <div class="sub">Pour un réseau de délégués, sur-mesure</div>
@@ -434,12 +449,15 @@
           <li>Formation d'équipe et support dédié</li>
           <li>Tarification par volume</li>
         </ul>
+        <label class="releve-toggle">
+          <input type="checkbox" class="releve-checkbox" data-price="">
+          <span>+ Ajouter Relevé Prix (inclus dans le devis)</span>
+        </label>
         <a href="#contact" class="btn btn-dark-outline">Nous contacter</a>
       </div>
     </div>
     <div class="pricing-note">
-      <div><b>Relevé Prix seul</b> — à partir de 9€ / mois / utilisateur</div>
-      <div><b>Bundle des deux apps</b> — -20% dès l'offre Essentiel</div>
+      <div><b>Relevé Prix seul</b> — à partir de 9€ / mois / utilisateur, sans TournéeApp</div>
     </div>
   </div>
 </section>
@@ -495,6 +513,20 @@
         links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
       });
     }
+
+    // Option Relevé Prix à cocher : met à jour le prix affiché en direct sur chaque carte
+    document.querySelectorAll('.releve-checkbox').forEach(function(checkbox){
+      const carte = checkbox.closest('.price-card');
+      const base = parseFloat(carte.dataset.base);
+      const ajout = parseFloat(checkbox.dataset.price);
+      const numEl = carte.querySelector('.amount-num');
+      checkbox.addEventListener('change', function(){
+        carte.classList.toggle('releve-active', checkbox.checked);
+        if (numEl && !isNaN(base) && !isNaN(ajout)) {
+          numEl.textContent = checkbox.checked ? (base + ajout) : base;
+        }
+      });
+    });
   });
 </script>
 
