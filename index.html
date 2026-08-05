@@ -169,6 +169,18 @@
   .method-row h3{font-size:19px; font-weight:600; margin-bottom:8px;}
   .method-row p{font-size:14.5px; color:var(--ink-soft); margin:0; max-width:560px;}
 
+  /* ---------- Manifesto ---------- */
+  .manifesto{background:var(--bg-deep); padding:70px 0 86px;}
+  .manifesto-story{
+    font-family:var(--disp); font-size:clamp(19px,2.2vw,24px); font-weight:600;
+    color:var(--ink); max-width:760px; line-height:1.4; margin-bottom:38px;
+  }
+  .manifesto-story span{color:var(--amber);}
+  .manifesto-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .manifesto-card{background:var(--bg-deep-2); border:1px solid var(--line-dark); border-radius:var(--radius); padding:24px;}
+  .manifesto-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
+  @media (max-width:860px){ .manifesto-grid{grid-template-columns:1fr;} }
+
   /* ---------- Pricing ---------- */
   .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch;}
   .price-card{
@@ -302,6 +314,27 @@
           <div class="n">Pharmacie de la Gare</div>
           <div class="d">À reporter — noté d'un tap</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto">
+  <div class="wrap">
+    <div class="eyebrow">Pourquoi WinWinApp existe</div>
+    <p class="manifesto-story">
+      <span>« Je travaillais le week-end et pendant mes vacances pour pouvoir m'organiser. »</span>
+      WinWinApp est né de cette phrase — le jour où une déléguée s'est demandé pourquoi elle devait sacrifier son temps libre pour préparer sa semaine.
+    </p>
+    <div class="manifesto-grid">
+      <div class="manifesto-card">
+        <p>Le temps gagné est notre véritable indicateur — pas le nombre de fonctionnalités livrées.</p>
+      </div>
+      <div class="manifesto-card">
+        <p>Une application ne doit jamais créer plus de travail qu'elle n'en supprime.</p>
+      </div>
+      <div class="manifesto-card">
+        <p>L'utile avant le spectaculaire : une fonction discrète mais utilisée chaque jour vaut mieux qu'une nouveauté oubliée.</p>
       </div>
     </div>
   </div>
