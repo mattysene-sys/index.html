@@ -224,6 +224,17 @@
   .product-feats li::before{content:"—"; color:var(--ink-dark-soft); flex-shrink:0;}
   .product-card .btn{margin-top:4px;}
 
+  /* ---------- Video ---------- */
+  .video-card{
+    max-width:880px; margin:0 auto; background:#fff; border:1px solid var(--line-dark); border-radius:22px;
+    padding:14px; box-shadow:var(--shadow-md); position:relative;
+  }
+  .video-card video{width:100%; display:block; border-radius:14px; background:var(--app-ardoise, #1C2630);}
+  .video-badge{
+    position:absolute; top:26px; right:26px; background:rgba(15,23,42,0.7); color:#fff; font-size:12px; font-weight:600;
+    padding:6px 12px; border-radius:999px; z-index:2; pointer-events:none; backdrop-filter:blur(4px);
+  }
+
   /* ---------- Method ---------- */
   .method-list{display:grid; gap:0;}
   .method-row{display:grid; grid-template-columns:70px 1fr; gap:26px; padding:30px 0; border-bottom:1px solid var(--line-dark);}
@@ -515,6 +526,20 @@
         </ul>
         <a href="https://tournee-core.vercel.app" target="_blank" rel="noopener" class="btn btn-corp">Essayer TournéeApp Corp</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">TournéeApp en action</div>
+      <h2>TournéeApp en bref</h2>
+      <p style="color:var(--ink-dark-soft); font-size:14.5px; margin-top:10px;">Un peu plus d'une minute pour voir TournéeApp organiser une journée de tournée, de l'itinéraire optimisé aux relances.</p>
+    </div>
+    <div class="video-card">
+      <span class="video-badge">1 min 09</span>
+      <video controls playsinline preload="metadata" src="videos/tournee-app-demo.mp4"></video>
     </div>
   </div>
 </section>
