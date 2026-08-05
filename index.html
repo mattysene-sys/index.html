@@ -30,6 +30,8 @@
     --releve-green:#10B981;
     --corp:#F59E0B;
     --corp-deep:#D97706;
+    --apm:#10B981;
+    --apm-deep:#059669;
     --line-dark:rgba(15,23,42,0.08);
     --line-light:rgba(15,23,42,0.06);
     --shadow:0 1px 2px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06);
@@ -80,6 +82,8 @@
   .btn-releve:hover{box-shadow:0 10px 24px rgba(79,70,229,0.32);}
   .btn-corp{background:var(--corp); color:#fff;}
   .btn-corp:hover{box-shadow:0 10px 24px rgba(245,158,11,0.32);}
+  .btn-apm{background:var(--apm); color:#fff;}
+  .btn-apm:hover{box-shadow:0 10px 24px rgba(16,185,129,0.32);}
   .btn-dark-outline{border-color:var(--line-light); color:var(--ink-dark);}
   .btn-dark-outline:hover{border-color:var(--ink-dark); background:rgba(15,23,42,0.03);}
 
@@ -205,7 +209,7 @@
   .problem-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
 
   /* ---------- Products ---------- */
-  .products-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:26px;}
+  .products-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
   .product-card{
     border-radius:20px; padding:36px; position:relative; overflow:hidden; border:1px solid var(--line-light);
     background:#fff; box-shadow:var(--shadow); transition:box-shadow .2s ease, transform .2s ease;
@@ -214,8 +218,14 @@
   .product-card.tournee:hover{box-shadow:0 24px 50px rgba(37,99,235,0.2);}
   .product-card.releve:hover{box-shadow:0 24px 50px rgba(79,70,229,0.2);}
   .product-card.corp:hover{box-shadow:0 24px 50px rgba(245,158,11,0.2);}
+  .product-card.apm:hover{box-shadow:0 24px 50px rgba(16,185,129,0.2);}
   .product-top{display:flex; align-items:center; gap:14px; margin-bottom:22px;}
   .product-top img{width:52px; height:52px; border-radius:13px;}
+  .product-top .icon-badge{
+    width:52px; height:52px; border-radius:13px; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+    font-family:var(--disp); font-weight:800; font-size:14px; letter-spacing:0.01em; color:#fff;
+    background:linear-gradient(135deg, var(--apm), var(--apm-deep));
+  }
   .product-top .name{font-family:var(--disp); font-size:21px; font-weight:700; color:var(--ink-dark);}
   .product-top .tag{font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-dark-soft);}
   .product-card p.pitch{font-size:15px; color:var(--ink-dark-soft); margin:0 0 22px; max-width:420px;}
@@ -359,7 +369,7 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Outils terrain · délégués pharmaceutiques</div>
+      <div class="eyebrow">Outils terrain · délégués pharmaceutiques et attachés à la promotion du médicament (DP et APM)</div>
       <h1>Construits par un délégué, <em>pour des délégués</em>.</h1>
       <p class="lead">WinWinApp édite des outils nés sur le terrain, pas dans un bureau : TournéeApp organise vos tournées et vos rendez-vous (avec TournéeApp Corp pour les équipes), Relevé Prix transforme une photo de rayon en relevé de prix exploitable.</p>
       <div class="hero-ctas">
@@ -472,7 +482,7 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">Les outils</div>
-      <h2>Trois apps, un même terrain</h2>
+      <h2>Quatre apps, un même terrain</h2>
     </div>
     <div class="products-grid">
       <div class="product-card tournee">
@@ -525,6 +535,23 @@
           <li>Offres commerciales groupées avec suivi des réponses</li>
         </ul>
         <a href="https://tournee-core.vercel.app" target="_blank" rel="noopener" class="btn btn-corp">Essayer TournéeApp Corp</a>
+      </div>
+      <div class="product-card apm">
+        <div class="product-top">
+          <div class="icon-badge">APM</div>
+          <div>
+            <div class="name">TournéeAPM</div>
+            <div class="tag">Attachés à la promotion du médicament</div>
+          </div>
+        </div>
+        <p class="pitch">La même organisation de tournée que TournéeApp, adaptée aux visites auprès des professionnels de santé prescripteurs — médecins, spécialistes, établissements.</p>
+        <ul class="product-feats">
+          <li>Itinéraire optimisé pour vos visites médicales</li>
+          <li>Suivi des échanges et du matériel promotionnel remis</li>
+          <li>Relances et rendez-vous synchronisés avec votre agenda</li>
+          <li>Reporting d'activité prêt pour votre laboratoire</li>
+        </ul>
+        <a href="#contact" class="btn btn-apm">Essayer TournéeAPM</a>
       </div>
     </div>
   </div>
@@ -581,21 +608,21 @@
     <div class="section-head">
       <div class="eyebrow">Tarifs</div>
       <h2>Un abonnement par utilisateur, sans engagement</h2>
-      <p style="color:var(--ink-dark-soft); font-size:14.5px; margin-top:10px;">Les tarifs ci-dessous couvrent TournéeApp. Ajoute Relevé Prix en option sur n'importe quel niveau.</p>
+      <p style="color:var(--ink-dark-soft); font-size:14.5px; margin-top:10px;">Les tarifs ci-dessous couvrent TournéeApp et TournéeAPM. Ajoute Relevé Prix en option sur n'importe quel niveau.</p>
     </div>
     <div class="pricing-grid">
       <div class="price-card" data-base="19">
         <div class="tier">Essentiel</div>
         <div class="amount"><span class="amount-num">19</span>€ <span>/ mois / utilisateur</span></div>
-        <div class="sub">TournéeApp, les fonctions clés</div>
+        <div class="sub">TournéeApp et TournéeAPM, les fonctions clés</div>
         <ul>
           <li>Base clients, Prochain RDV, Ma semaine, Agenda</li>
           <li>Export CSV générique</li>
           <li>Support par email</li>
         </ul>
         <label class="releve-toggle">
-          <input type="checkbox" class="releve-checkbox" data-price="9">
-          <span>+ Ajouter Relevé Prix (+9€/mois/utilisateur)</span>
+          <input type="checkbox" class="releve-checkbox" data-price="9.99">
+          <span>+ Ajouter Relevé Prix (+9,99€/mois/utilisateur)</span>
         </label>
         <a href="#contact" class="btn btn-dark-outline">Commencer</a>
       </div>
@@ -611,8 +638,8 @@
           <li>Navigation Waze / Google Maps intégrée</li>
         </ul>
         <label class="releve-toggle">
-          <input type="checkbox" class="releve-checkbox" data-price="9">
-          <span>+ Ajouter Relevé Prix, avec supervision multi-utilisateurs (+9€/mois/utilisateur)</span>
+          <input type="checkbox" class="releve-checkbox" data-price="9.99">
+          <span>+ Ajouter Relevé Prix, avec supervision multi-utilisateurs (+9,99€/mois/utilisateur)</span>
         </label>
         <a href="#contact" class="btn btn-tournee">Commencer</a>
       </div>
@@ -635,7 +662,7 @@
       </div>
     </div>
     <div class="pricing-note">
-      <div><b>Relevé Prix seul</b> — à partir de 9€ / mois / utilisateur, sans TournéeApp</div>
+      <div><b>Relevé Prix seul</b> — à partir de 9,99€ / mois / utilisateur, sans TournéeApp</div>
     </div>
   </div>
 </section>
@@ -704,7 +731,8 @@
       checkbox.addEventListener('change', function(){
         carte.classList.toggle('releve-active', checkbox.checked);
         if (numEl && !isNaN(base) && !isNaN(ajout)) {
-          numEl.textContent = checkbox.checked ? (base + ajout) : base;
+          const total = checkbox.checked ? (base + ajout) : base;
+          numEl.textContent = Number.isInteger(total) ? total : total.toFixed(2).replace('.', ',');
         }
       });
     });
