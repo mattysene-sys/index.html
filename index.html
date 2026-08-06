@@ -294,6 +294,12 @@
   .price-card li b{font-weight:600;}
   .price-card li::before{content:"✓"; color:var(--tournee-deep); font-weight:700; flex-shrink:0;}
   .pricing-note{margin-top:28px; font-size:13.5px; color:var(--ink-dark-soft); display:flex; gap:22px; flex-wrap:wrap;}
+  .trial-badge{
+    display:inline-flex; align-items:center; gap:8px; margin-top:16px;
+    background:rgba(16,185,129,0.1); color:var(--apm-deep); font-size:13.5px; font-weight:600;
+    padding:9px 16px; border-radius:999px;
+  }
+  .trial-badge::before{content:"✓"; font-weight:800;}
   .pricing-note b{color:var(--ink-dark);}
   .releve-toggle{
     display:flex; align-items:flex-start; gap:9px; font-size:12.5px; color:var(--ink-dark-soft); cursor:pointer;
@@ -621,11 +627,12 @@
       <div class="eyebrow">Tarifs</div>
       <h2>Un abonnement par utilisateur, sans engagement</h2>
       <p style="color:var(--ink-dark-soft); font-size:14.5px; margin-top:10px;">Les tarifs ci-dessous couvrent TournéeApp et TournéeAPM. Ajoute Relevé Prix en option sur n'importe quel niveau.</p>
+      <div class="trial-badge">14 jours d'essai gratuit, sans engagement, sur toutes les formules</div>
     </div>
     <div class="pricing-grid">
-      <div class="price-card" data-base="19">
+      <div class="price-card" data-base="19.99">
         <div class="tier">Essentiel</div>
-        <div class="amount"><span class="amount-num">19</span>€ <span>/ mois / utilisateur</span></div>
+        <div class="amount"><span class="amount-num">19,99</span>€ <span>/ mois / utilisateur</span></div>
         <div class="sub">TournéeApp et TournéeAPM, les fonctions clés</div>
         <ul>
           <li>Base clients, Prochain RDV, Ma semaine, Agenda</li>
