@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bienvenue — WinWinApp</title>
+<meta name="description" content="Ton essai gratuit de 14 jours a commencé. Consulte tes emails pour activer ton compte TournéeApp.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F8FAFC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2563EB;
+    --purple:#6366F1;
+    --green:#10B981;
+    --orange:#F59E0B;
+    --navy:#0F172A;
+    --white:#F8FAFC;
+    --ink:#0F172A;
+    --ink-soft:#5B6472;
+    --line:#E5E9F0;
+    --card-bg:#FFFFFF;
+    --radius:16px;
+    --disp:'Plus Jakarta Sans', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--white); color:var(--ink);
+    font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:var(--disp); margin:0; letter-spacing:-0.01em; color:var(--navy);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(248,250,252,0.9); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brand .mark{
+    width:30px; height:30px; border-radius:9px;
+    background:linear-gradient(135deg, var(--blue), var(--purple));
+  }
+  .brand span{font-family:var(--disp); font-weight:700; font-size:17px; color:var(--navy);}
+  .nav-links{display:flex; align-items:center; gap:32px; font-size:14.5px;}
+  .nav-links a{text-decoration:none; color:var(--ink-soft); font-weight:500; transition:color .15s;}
+  .nav-links a:hover, .nav-links a.active{color:var(--blue);}
+  .btn{
+    font-family:var(--body); font-weight:600; font-size:14.5px; padding:12px 22px; border-radius:999px;
+    border:1.5px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{box-shadow:0 10px 26px rgba(37,99,235,0.28);}
+  .btn-ghost{border-color:var(--line); color:var(--navy);}
+  .btn-ghost:hover{border-color:var(--blue); color:var(--blue);}
+  .burger{display:none; background:none; border:none; color:var(--navy); font-size:22px; cursor:pointer;}
+
+  /* ---------- Hero / confirmation ---------- */
+  .hero{padding:76px 0 90px; position:relative; overflow:hidden;}
+  .eyebrow{
+    font-family:var(--body); font-weight:600; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--green); display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;
+    background:rgba(16,185,129,0.1); padding:7px 14px; border-radius:999px;
+  }
+  .eyebrow .dot{width:6px; height:6px; border-radius:50%; background:var(--green);}
+  .hero h1{font-size:clamp(28px,3.6vw,40px); line-height:1.16; font-weight:800; max-width:720px;}
+  .hero h1 em{font-style:normal; background:linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  .story-card{
+    margin-top:38px; background:var(--card-bg); border:1px solid var(--line); border-radius:20px;
+    padding:36px 40px; position:relative; box-shadow:0 20px 44px rgba(15,23,42,0.06); max-width:620px;
+  }
+  .story-quote{
+    font-family:var(--disp); font-weight:700; font-size:clamp(18px,2vw,21px); color:var(--navy);
+    margin:0 0 14px;
+  }
+  .story-note{font-size:14.5px; color:var(--ink-soft); margin:0;}
+  .story-note + .story-note{margin-top:12px;}
+
+  /* ---------- Footer léger ---------- */
+  footer{border-top:1px solid var(--line); padding:36px 0; margin-top:20px;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; color:var(--ink-soft); font-size:13px;}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .story-card{padding:28px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <div class="mark"></div>
+      <span>WinWinApp</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#produits">Produits</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#tarifs">Tarifs</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary">Demander une démo</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Essai gratuit activé</div>
+    <h1>Merci ! Ton essai gratuit de <em>14 jours</em> a commencé.</h1>
+
+    <div class="story-card">
+      <p class="story-quote">Un email arrive dans quelques minutes.</p>
+      <p class="story-note">Il contient le lien pour définir ton mot de passe et ton code d'accès à l'application TournéeApp — pense à vérifier tes spams s'il n'apparaît pas tout de suite.</p>
+      <p class="story-note">Aucun prélèvement n'aura lieu avant la fin de ton essai de 14 jours.</p>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a href="index.html" class="btn btn-primary">Retour à l'accueil</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>winwinapp.fr</span>
+    <span>© 2026 WinWinApp — Tous droits réservés</span>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var burger = document.querySelector('.burger');
+    var links = document.querySelector('.nav-links');
+    if(burger){
+      burger.addEventListener('click', function(){
+        links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

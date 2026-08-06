@@ -300,6 +300,10 @@
     padding:9px 16px; border-radius:999px;
   }
   .trial-badge::before{content:"✓"; font-weight:800;}
+  .trial-note{font-size:12px; color:var(--ink-dark-soft); margin-top:10px; line-height:1.5;}
+  .stripe-error{font-size:12.5px; color:#DC2626; margin-top:10px; line-height:1.5;}
+  .stripe-error a{color:#DC2626; text-decoration:underline;}
+  .btn:disabled{opacity:0.65; cursor:not-allowed; transform:none !important;}
   .pricing-note b{color:var(--ink-dark);}
   .releve-toggle{
     display:flex; align-items:flex-start; gap:9px; font-size:12.5px; color:var(--ink-dark-soft); cursor:pointer;
@@ -657,10 +661,12 @@
           <li>Navigation Waze / Google Maps intégrée</li>
         </ul>
         <label class="releve-toggle">
-          <input type="checkbox" class="releve-checkbox" data-price="9.99">
+          <input type="checkbox" class="releve-checkbox" id="stripe-releve-checkbox" data-price="9.99">
           <span>+ Ajouter Relevé Prix, avec supervision multi-utilisateurs (+9,99€/mois/utilisateur)</span>
         </label>
-        <a href="#contact" class="btn btn-tournee">Commencer</a>
+        <button type="button" id="stripe-checkout-btn" class="btn btn-tournee">S'abonner</button>
+        <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
+        <div id="stripe-error" class="stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
       <div class="price-card" data-base="">
         <div class="tier">Entreprise</div>
@@ -755,6 +761,43 @@
         }
       });
     });
+
+    // Si on arrive sur /tarifs (redirection Stripe "annulation"), on scrolle vers la section tarifs
+    if (window.location.pathname.replace(/\/$/, '') === '/tarifs') {
+      document.getElementById('tarifs')?.scrollIntoView();
+    }
+
+    // Bouton "S'abonner" (offre Pro) : crée une session Stripe Checkout via l'API publique Supabase
+    var stripeBtn = document.getElementById('stripe-checkout-btn');
+    if (stripeBtn) {
+      stripeBtn.addEventListener('click', function(){
+        var releveCheckbox = document.getElementById('stripe-releve-checkbox');
+        var errorEl = document.getElementById('stripe-error');
+        var originalText = stripeBtn.textContent;
+        errorEl.hidden = true;
+        stripeBtn.disabled = true;
+        stripeBtn.textContent = 'Redirection...';
+
+        fetch('https://baeglgpwriyvcerybbwj.supabase.co/functions/v1/create-checkout-session-public', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ releve_prix: !!(releveCheckbox && releveCheckbox.checked) })
+        })
+          .then(function(res){ return res.json(); })
+          .then(function(data){
+            if (data && data.url) {
+              window.location.href = data.url;
+            } else {
+              throw new Error((data && data.error) || 'Réponse invalide');
+            }
+          })
+          .catch(function(){
+            errorEl.hidden = false;
+            stripeBtn.disabled = false;
+            stripeBtn.textContent = originalText;
+          });
+      });
+    }
   });
 </script>
 
