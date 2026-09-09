@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politique de confidentialité — WinWinApp</title>
+<meta name="description" content="Comment WinWin collecte, utilise et protège les données personnelles des utilisateurs de winwinapp.fr et de TournéeApp.">
+<meta name="theme-color" content="#F8FAFC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2563EB;
+    --purple:#6366F1;
+    --green:#10B981;
+    --orange:#F59E0B;
+    --navy:#0F172A;
+    --white:#F8FAFC;
+    --ink:#0F172A;
+    --ink-soft:#5B6472;
+    --line:#E5E9F0;
+    --card-bg:#FFFFFF;
+    --radius:16px;
+    --disp:'Plus Jakarta Sans', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--white); color:var(--ink);
+    font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:var(--disp); margin:0; letter-spacing:-0.01em; color:var(--navy);}
+
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(248,250,252,0.9); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brand .mark{
+    width:30px; height:30px; border-radius:9px;
+    background:linear-gradient(135deg, var(--blue), var(--purple));
+  }
+  .brand span{font-family:var(--disp); font-weight:700; font-size:17px; color:var(--navy);}
+  .nav-links{display:flex; align-items:center; gap:32px; font-size:14.5px;}
+  .nav-links a{text-decoration:none; color:var(--ink-soft); font-weight:500; transition:color .15s;}
+  .nav-links a:hover, .nav-links a.active{color:var(--blue);}
+  .btn{
+    font-family:var(--body); font-weight:600; font-size:14.5px; padding:12px 22px; border-radius:999px;
+    border:1.5px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{box-shadow:0 10px 26px rgba(37,99,235,0.28);}
+  .burger{display:none; background:none; border:none; color:var(--navy); font-size:22px; cursor:pointer;}
+
+  .legal-hero{padding:56px 0 8px;}
+  .eyebrow{
+    font-family:var(--body); font-weight:600; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--blue); display:inline-flex; align-items:center; gap:8px; margin-bottom:18px;
+    background:rgba(37,99,235,0.08); padding:7px 14px; border-radius:999px;
+  }
+  .legal-hero h1{font-size:clamp(28px,3.6vw,38px); font-weight:800;}
+  .legal-updated{color:var(--ink-soft); font-size:13px; margin-top:10px;}
+  .legal-content{padding:20px 0 90px; max-width:760px;}
+  .legal-content h2{font-size:19px; font-weight:700; margin:36px 0 12px;}
+  .legal-content h2:first-child{margin-top:0;}
+  .legal-content p{font-size:15px; line-height:1.7; margin:0 0 16px;}
+  .legal-content ul{padding-left:20px; margin:0 0 16px;}
+  .legal-content li{font-size:15px; line-height:1.7; margin-bottom:6px;}
+  .legal-content a{color:var(--blue); text-decoration:underline;}
+  .legal-content strong{font-weight:700; color:var(--navy);}
+  .legal-note{
+    background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.3); border-radius:10px;
+    padding:14px 16px; font-size:13.5px; line-height:1.6; color:var(--navy); margin:16px 0;
+  }
+  .legal-note b{color:var(--orange);}
+  .legal-table-wrap{overflow-x:auto; margin:16px 0 20px;}
+  .legal-content table{width:100%; border-collapse:collapse; font-size:13.5px; min-width:520px;}
+  .legal-content th, .legal-content td{border:1px solid var(--line); padding:10px 12px; text-align:left; vertical-align:top;}
+  .legal-content th{background:#F1F5F9; font-weight:700; color:var(--navy);}
+
+  footer{border-top:1px solid var(--line); padding:36px 0; margin-top:20px;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; color:var(--ink-soft); font-size:13px;}
+  .footer-legal{display:flex; gap:18px; flex-wrap:wrap;}
+  .footer-legal a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
+  .footer-legal a:hover{color:var(--blue);}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <div class="mark"></div>
+      <span>WinWinApp</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#produits">Produits</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#tarifs">Tarifs</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary">Demander une démo</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="wrap">
+    <div class="eyebrow">Informations légales</div>
+    <h1>Politique de confidentialité</h1>
+    <div class="legal-updated">Dernière mise à jour : 10 septembre 2026</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="legal-content">
+
+      <h2>Qui traite vos données ?</h2>
+      <p>Le responsable du traitement des données personnelles collectées sur winwinapp.fr et via l'application TournéeApp est <strong>WinWin</strong>, EURL au capital de 1 000 €, dont le siège social est situé 22 chemin de Ricard, 33750 Saint-Germain-du-Puch, SIREN 108 498 734. Pour toute question relative à vos données, contactez <a href="mailto:bonjour@winwinapp.fr">bonjour@winwinapp.fr</a>.</p>
+
+      <h2>Quelles données sont collectées ?</h2>
+      <ul>
+        <li><strong>Données de compte</strong> : adresse email, mot de passe (stocké de façon chiffrée, jamais en clair), code d'accès à l'application.</li>
+        <li><strong>Données de facturation</strong> : gérées directement par notre prestataire de paiement Stripe. WinWin ne stocke jamais les numéros de carte bancaire ni les coordonnées bancaires complètes — seuls des identifiants techniques (identifiant client Stripe, identifiant d'abonnement, statut) sont conservés côté WinWin.</li>
+        <li><strong>Données saisies dans l'application</strong> : les informations que vous entrez vous-même pour utiliser TournéeApp (clients, adresses, plannings, rendez-vous, notes). Ces données vous appartiennent et servent uniquement à faire fonctionner le service pour vous.</li>
+        <li><strong>Données de navigation</strong> : cookies techniques nécessaires (session, authentification) et, le cas échéant, cookies de mesure d'audience — voir la section Cookies ci-dessous.</li>
+      </ul>
+
+      <h2>Pourquoi ces données sont-elles collectées ?</h2>
+      <ul>
+        <li>Créer et gérer votre compte et votre accès à l'application</li>
+        <li>Gérer votre abonnement et la facturation associée</li>
+        <li>Faire fonctionner les fonctionnalités du service (organisation de tournées, agenda, relances, et suggestions générées par IA lorsque vous utilisez cette fonctionnalité)</li>
+        <li>Vous contacter pour le support ou des informations relatives à votre abonnement (essai gratuit, échéances, incidents de paiement)</li>
+        <li>Respecter nos obligations légales et comptables</li>
+      </ul>
+      <p>Les bases légales de ces traitements sont l'exécution du contrat d'abonnement qui nous lie à vous, notre intérêt légitime à assurer le bon fonctionnement et la sécurité du service, et le respect de nos obligations légales (comptabilité notamment).</p>
+
+      <h2>Qui reçoit vos données ?</h2>
+      <p>WinWin ne vend ni ne loue vos données personnelles à des tiers. Certaines données sont transmises à des prestataires techniques, strictement pour les besoins du service :</p>
+      <div class="legal-table-wrap">
+        <table>
+          <thead>
+            <tr><th>Prestataire</th><th>Rôle</th><th>Localisation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Stripe Payments Europe, Ltd.</td><td>Traitement des paiements et de la facturation</td><td>Irlande (UE)</td></tr>
+            <tr><td>Supabase Inc.</td><td>Hébergement de la base de données applicative (comptes, données de tournées)</td><td>Infrastructure AWS, région Europe</td></tr>
+            <tr><td>Vercel Inc.</td><td>Hébergement du site winwinapp.fr</td><td>États-Unis</td></tr>
+            <tr><td>Resend</td><td>Envoi des emails transactionnels (bienvenue, relances, factures)</td><td>À vérifier — voir note</td></tr>
+            <tr><td>Anthropic</td><td>Génération des suggestions par intelligence artificielle (lorsque cette fonctionnalité est utilisée)</td><td>États-Unis</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Lorsqu'un prestataire est situé hors de l'Union européenne (Vercel, Anthropic), le transfert de données est encadré par les garanties prévues par le RGPD (clauses contractuelles types de la Commission européenne ou mécanisme équivalent proposé par le prestataire).</p>
+      <div class="legal-note">
+        <b>À vérifier avant mise en ligne — je n'ai pas pu confirmer moi-même :</b>
+        <ul style="margin:8px 0 0;">
+          <li>La localisation exacte des serveurs de Resend (email transactionnel) et les garanties de transfert associées.</li>
+          <li>La nature exacte des données envoyées à Anthropic via la fonctionnalité de suggestions IA (j'ai vu qu'un proxy technique existe côté serveur, mais je n'ai pas le détail de ce qui est effectivement transmis dans les requêtes — à préciser si ce sont des données identifiantes sur vos clients, par exemple).</li>
+          <li>Si un outil de mesure d'audience est réellement activé sur le site aujourd'hui (Google Analytics ou autre) — je n'en ai vu aucun dans le code actuel du site, donc la mention ci-dessous reste conditionnelle ("le cas échéant").</li>
+        </ul>
+      </div>
+
+      <h2>Combien de temps vos données sont-elles conservées ?</h2>
+      <p>Vos données de compte et d'usage sont conservées pendant toute la durée de votre abonnement, puis supprimées ou anonymisées dans un délai raisonnable après la résiliation, sauf obligation légale de conservation plus longue (les données de facturation sont notamment conservées 10 ans conformément aux obligations comptables françaises).</p>
+
+      <h2>Cookies</h2>
+      <p>Ce site utilise des cookies strictement nécessaires à son fonctionnement (maintien de votre session, authentification). Ces cookies ne nécessitent pas votre consentement car ils sont indispensables au service que vous demandez.</p>
+      <p>Le cas échéant, des cookies de mesure d'audience pourraient être utilisés pour comprendre l'usage du site de façon anonyme ; vous en seriez informé et votre consentement vous serait demandé avant leur dépôt, conformément à la réglementation applicable.</p>
+
+      <h2>Vos droits</h2>
+      <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données personnelles :</p>
+      <ul>
+        <li>Droit d'accès : obtenir une copie des données que nous détenons sur vous</li>
+        <li>Droit de rectification : corriger des données inexactes ou incomplètes</li>
+        <li>Droit à l'effacement : demander la suppression de vos données</li>
+        <li>Droit à la portabilité : recevoir vos données dans un format structuré et réutilisable</li>
+        <li>Droit d'opposition et de limitation du traitement</li>
+      </ul>
+      <p>Pour exercer ces droits, écrivez à <a href="mailto:bonjour@winwinapp.fr">bonjour@winwinapp.fr</a>. Nous répondrons dans les délais prévus par la réglementation.</p>
+      <p>Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) — <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
+
+      <h2>Sécurité</h2>
+      <p>WinWin met en œuvre des mesures techniques et organisationnelles raisonnables pour protéger vos données contre l'accès non autorisé, la perte ou l'altération (notamment : mots de passe chiffrés, hébergement chez des prestataires certifiés, accès restreint aux données).</p>
+
+      <h2>Modifications de cette politique</h2>
+      <p>Cette politique de confidentialité peut être mise à jour, notamment pour refléter des évolutions du service ou de la réglementation. La date de dernière mise à jour figure en haut de cette page.</p>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>winwinapp.fr</span>
+    <div class="footer-legal">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv.html">CGV</a>
+      <a href="remboursement.html">Remboursement</a>
+      <a href="confidentialite.html">Confidentialité</a>
+    </div>
+    <span>© 2026 WinWinApp — Tous droits réservés</span>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var burger = document.querySelector('.burger');
+    var links = document.querySelector('.nav-links');
+    if(burger){
+      burger.addEventListener('click', function(){
+        links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
