@@ -275,9 +275,10 @@
   @media (max-width:860px){ .manifesto-grid{grid-template-columns:1fr;} }
 
   /* ---------- Pricing ---------- */
-  .pricing-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; align-items:stretch;}
+  .pricing-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px; align-items:stretch;}
+  .price-card.decoy{background:var(--cream); box-shadow:none;}
   .price-card{
-    border:1px solid var(--line-light); border-radius:18px; padding:32px 28px; background:#fff; box-shadow:var(--shadow);
+    border:1px solid var(--line-light); border-radius:18px; padding:28px 22px; background:#fff; box-shadow:var(--shadow);
     display:flex; flex-direction:column;
   }
   .price-card.featured{border-color:var(--tournee); box-shadow:var(--shadow-md); position:relative;}
@@ -337,6 +338,9 @@
   .footer-apps img{width:18px; height:18px; border-radius:4px;}
   .footer-bottom{display:flex; justify-content:space-between; color:var(--ink-soft); font-size:12.5px; flex-wrap:wrap; gap:10px;}
 
+  @media (max-width:1080px){
+    .pricing-grid{grid-template-columns:repeat(2,1fr);}
+  }
   @media (max-width:860px){
     .nav-links{display:none;}
     .burger{display:block;}
@@ -630,10 +634,23 @@
     <div class="section-head">
       <div class="eyebrow">Tarifs</div>
       <h2>Un abonnement par utilisateur, sans engagement</h2>
-      <p style="color:var(--ink-dark-soft); font-size:14.5px; margin-top:10px;">Les tarifs ci-dessous couvrent TournéeApp et TournéeAPM. Ajoute Relevé Prix en option sur n'importe quel niveau.</p>
+      <p style="color:var(--ink-dark-soft); font-size:14.5px; margin-top:10px;">Les tarifs ci-dessous couvrent TournéeApp et TournéeAPM. Ajoute Relevé Prix en option sur les formules Solo et Pro.</p>
       <div class="trial-badge">14 jours d'essai gratuit, sans engagement, sur toutes les formules</div>
     </div>
     <div class="pricing-grid">
+      <div class="price-card decoy" data-base="19.99">
+        <div class="tier">Tournée Basic</div>
+        <div class="amount"><span class="amount-num">19,99</span>€ <span>/ mois</span></div>
+        <div class="sub">Pour démarrer avec TournéeApp, l'essentiel de l'organisation</div>
+        <ul>
+          <li>Propositions de rendez-vous optimisées selon vos RDV déjà positionnés et les temps de trajet</li>
+          <li>Export des créneaux optimisés par email</li>
+          <li>Agenda consultable et modifiable sur PC et smartphone</li>
+        </ul>
+        <button type="button" class="btn btn-dark-outline js-stripe-btn" data-plan="basic">S'abonner</button>
+        <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
+        <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
+      </div>
       <div class="price-card" data-base="19.99">
         <div class="tier">DP/APM Solo</div>
         <div class="amount"><span class="amount-num">19,99</span>€ <span>/ mois</span></div>
@@ -780,7 +797,7 @@
         var carte = stripeBtn.closest('.price-card');
         var releveCheckbox = carte ? carte.querySelector('.releve-checkbox') : null;
         var errorEl = carte ? carte.querySelector('.js-stripe-error') : null;
-        var plan = stripeBtn.dataset.plan === 'solo' ? 'solo' : 'pro';
+        var plan = (stripeBtn.dataset.plan === 'solo' || stripeBtn.dataset.plan === 'basic') ? stripeBtn.dataset.plan : 'pro';
         var originalText = stripeBtn.textContent;
         if (errorEl) errorEl.hidden = true;
         stripeBtn.disabled = true;
