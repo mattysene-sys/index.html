@@ -302,6 +302,12 @@
   }
   .trial-badge::before{content:"✓"; font-weight:800;}
   .trial-note{font-size:12px; color:var(--ink-dark-soft); margin-top:10px; line-height:1.5;}
+  .cgv-toggle{
+    display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--ink-dark-soft); cursor:pointer;
+    margin-bottom:12px;
+  }
+  .cgv-toggle input{margin-top:2px; cursor:pointer; flex-shrink:0;}
+  .cgv-toggle a{color:var(--tournee-deep); text-decoration:underline;}
   .stripe-error{font-size:12.5px; color:#DC2626; margin-top:10px; line-height:1.5;}
   .stripe-error a{color:#DC2626; text-decoration:underline;}
   .btn:disabled{opacity:0.65; cursor:not-allowed; transform:none !important;}
@@ -337,6 +343,9 @@
   .footer-apps a:hover{border-color:var(--tournee-deep); color:var(--tournee-deep);}
   .footer-apps img{width:18px; height:18px; border-radius:4px;}
   .footer-bottom{display:flex; justify-content:space-between; color:var(--ink-soft); font-size:12.5px; flex-wrap:wrap; gap:10px;}
+  .footer-legal{display:flex; gap:16px; flex-wrap:wrap;}
+  .footer-legal a{color:var(--ink-soft); text-decoration:none; transition:color .15s;}
+  .footer-legal a:hover{color:var(--tournee-deep);}
 
   @media (max-width:1080px){
     .pricing-grid{grid-template-columns:repeat(2,1fr);}
@@ -647,7 +656,11 @@
           <li>Export des créneaux optimisés par email</li>
           <li>Agenda consultable et modifiable sur PC et smartphone</li>
         </ul>
-        <button type="button" class="btn btn-dark-outline js-stripe-btn" data-plan="basic">S'abonner</button>
+        <label class="cgv-toggle">
+          <input type="checkbox" class="cgv-checkbox">
+          <span>J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a></span>
+        </label>
+        <button type="button" class="btn btn-dark-outline js-stripe-btn" data-plan="basic" disabled>S'abonner</button>
         <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
         <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
@@ -667,7 +680,11 @@
           <input type="checkbox" class="releve-checkbox" data-price="9.99">
           <span>+ Ajouter Relevé Prix (+9,99€/mois)</span>
         </label>
-        <button type="button" class="btn btn-dark-outline js-stripe-btn" data-plan="solo">S'abonner</button>
+        <label class="cgv-toggle">
+          <input type="checkbox" class="cgv-checkbox">
+          <span>J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a></span>
+        </label>
+        <button type="button" class="btn btn-dark-outline js-stripe-btn" data-plan="solo" disabled>S'abonner</button>
         <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
         <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
@@ -686,7 +703,11 @@
           <input type="checkbox" class="releve-checkbox" data-price="9.99">
           <span>+ Ajouter Relevé Prix, avec supervision multi-utilisateurs (+9,99€/mois/utilisateur)</span>
         </label>
-        <button type="button" class="btn btn-tournee js-stripe-btn" data-plan="pro">S'abonner</button>
+        <label class="cgv-toggle">
+          <input type="checkbox" class="cgv-checkbox">
+          <span>J'ai lu et j'accepte les <a href="cgv.html" target="_blank" rel="noopener">Conditions Générales de Vente</a></span>
+        </label>
+        <button type="button" class="btn btn-tournee js-stripe-btn" data-plan="pro" disabled>S'abonner</button>
         <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
         <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
@@ -753,6 +774,11 @@
     </div>
     <div class="footer-bottom">
       <span>winwinapp.fr</span>
+      <div class="footer-legal">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgv.html">CGV</a>
+        <a href="remboursement.html">Remboursement</a>
+      </div>
       <span>© 2026 WinWinApp — Tous droits réservés</span>
     </div>
   </div>
@@ -784,6 +810,18 @@
       });
     });
 
+    // Case "J'ai lu et j'accepte les CGV" : obligatoire, non pré-cochée --
+    // le bouton "S'abonner" de la carte reste désactivé tant qu'elle n'est
+    // pas cochée (cf. Article 6 des CGV, renonciation au droit de rétractation).
+    document.querySelectorAll('.cgv-checkbox').forEach(function(cgvCheckbox){
+      var carte = cgvCheckbox.closest('.price-card');
+      var btn = carte ? carte.querySelector('.js-stripe-btn') : null;
+      if (!btn) return;
+      cgvCheckbox.addEventListener('change', function(){
+        btn.disabled = !cgvCheckbox.checked;
+      });
+    });
+
     // Si on arrive sur /tarifs (redirection Stripe "annulation"), on scrolle vers la section tarifs
     if (window.location.pathname.replace(/\/$/, '') === '/tarifs') {
       document.getElementById('tarifs')?.scrollIntoView();
@@ -797,6 +835,8 @@
         var carte = stripeBtn.closest('.price-card');
         var releveCheckbox = carte ? carte.querySelector('.releve-checkbox') : null;
         var errorEl = carte ? carte.querySelector('.js-stripe-error') : null;
+        var cgvCheckbox = carte ? carte.querySelector('.cgv-checkbox') : null;
+        if (cgvCheckbox && !cgvCheckbox.checked) return; // sécurité : ne devrait pas arriver, le bouton est désactivé tant que la case n'est pas cochée
         var plan = (stripeBtn.dataset.plan === 'solo' || stripeBtn.dataset.plan === 'basic') ? stripeBtn.dataset.plan : 'pro';
         var originalText = stripeBtn.textContent;
         if (errorEl) errorEl.hidden = true;

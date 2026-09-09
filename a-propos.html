@@ -131,6 +131,9 @@
   /* ---------- Footer léger ---------- */
   footer{border-top:1px solid var(--line); padding:36px 0; margin-top:20px;}
   .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; color:var(--ink-soft); font-size:13px;}
+  .footer-legal{display:flex; gap:18px; flex-wrap:wrap;}
+  .footer-legal a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
+  .footer-legal a:hover{color:var(--blue);}
 
   @media (max-width:860px){
     .nav-links{display:none;}
@@ -248,6 +251,11 @@
 <footer>
   <div class="wrap footer-row">
     <span>winwinapp.fr</span>
+    <div class="footer-legal">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv.html">CGV</a>
+      <a href="remboursement.html">Remboursement</a>
+    </div>
     <span>© 2026 WinWinApp — Tous droits réservés</span>
   </div>
 </footer>

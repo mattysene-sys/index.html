@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales — WinWinApp</title>
+<meta name="description" content="Mentions légales du site winwinapp.fr, édité par WinWin.">
+<meta name="theme-color" content="#F8FAFC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2563EB;
+    --purple:#6366F1;
+    --green:#10B981;
+    --orange:#F59E0B;
+    --navy:#0F172A;
+    --white:#F8FAFC;
+    --ink:#0F172A;
+    --ink-soft:#5B6472;
+    --line:#E5E9F0;
+    --card-bg:#FFFFFF;
+    --radius:16px;
+    --disp:'Plus Jakarta Sans', sans-serif;
+    --body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--white); color:var(--ink);
+    font-family:var(--body); line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:var(--disp); margin:0; letter-spacing:-0.01em; color:var(--navy);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50; background:rgba(248,250,252,0.9); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+  .brand .mark{
+    width:30px; height:30px; border-radius:9px;
+    background:linear-gradient(135deg, var(--blue), var(--purple));
+  }
+  .brand span{font-family:var(--disp); font-weight:700; font-size:17px; color:var(--navy);}
+  .nav-links{display:flex; align-items:center; gap:32px; font-size:14.5px;}
+  .nav-links a{text-decoration:none; color:var(--ink-soft); font-weight:500; transition:color .15s;}
+  .nav-links a:hover, .nav-links a.active{color:var(--blue);}
+  .btn{
+    font-family:var(--body); font-weight:600; font-size:14.5px; padding:12px 22px; border-radius:999px;
+    border:1.5px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+    text-decoration:none; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--blue); color:#fff;}
+  .btn-primary:hover{box-shadow:0 10px 26px rgba(37,99,235,0.28);}
+  .burger{display:none; background:none; border:none; color:var(--navy); font-size:22px; cursor:pointer;}
+
+  /* ---------- Contenu légal ---------- */
+  .legal-hero{padding:56px 0 8px;}
+  .eyebrow{
+    font-family:var(--body); font-weight:600; font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--blue); display:inline-flex; align-items:center; gap:8px; margin-bottom:18px;
+    background:rgba(37,99,235,0.08); padding:7px 14px; border-radius:999px;
+  }
+  .legal-hero h1{font-size:clamp(28px,3.6vw,38px); font-weight:800;}
+  .legal-updated{color:var(--ink-soft); font-size:13px; margin-top:10px;}
+  .legal-content{padding:20px 0 90px; max-width:760px;}
+  .legal-content h2{font-size:19px; font-weight:700; margin:36px 0 12px;}
+  .legal-content h2:first-child{margin-top:0;}
+  .legal-content p{font-size:15px; line-height:1.7; margin:0 0 16px;}
+  .legal-content ul{padding-left:20px; margin:0 0 16px;}
+  .legal-content li{font-size:15px; line-height:1.7; margin-bottom:6px;}
+  .legal-content a{color:var(--blue); text-decoration:underline;}
+  .legal-content strong{font-weight:700; color:var(--navy);}
+  .legal-note{
+    background:rgba(245,158,11,0.08); border:1px solid rgba(245,158,11,0.3); border-radius:10px;
+    padding:14px 16px; font-size:13.5px; line-height:1.6; color:var(--navy); margin:16px 0;
+  }
+  .legal-note b{color:var(--orange);}
+
+  /* ---------- Footer ---------- */
+  footer{border-top:1px solid var(--line); padding:36px 0; margin-top:20px;}
+  .footer-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; color:var(--ink-soft); font-size:13px;}
+  .footer-legal{display:flex; gap:18px; flex-wrap:wrap;}
+  .footer-legal a{text-decoration:none; color:var(--ink-soft); transition:color .15s;}
+  .footer-legal a:hover{color:var(--blue);}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <div class="mark"></div>
+      <span>WinWinApp</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html#produits">Produits</a>
+      <a href="index.html#methode">Méthode</a>
+      <a href="index.html#tarifs">Tarifs</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn btn-primary">Demander une démo</a>
+    <button class="burger" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="legal-hero">
+  <div class="wrap">
+    <div class="eyebrow">Informations légales</div>
+    <h1>Mentions légales</h1>
+    <div class="legal-updated">Dernière mise à jour : 10 septembre 2026</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="legal-content">
+
+      <h2>Éditeur du site</h2>
+      <p>Le site winwinapp.fr est édité par :</p>
+      <p>
+        <strong>WinWin</strong>, EURL au capital de 1 000 €<br>
+        Représentée par Ndeye-Matty Sene, gérante<br>
+        Siège social : 22 chemin de Ricard, 33750 Saint-Germain-du-Puch<br>
+        SIREN : 108 498 734
+      </p>
+      <div class="legal-note"><b>À compléter :</b> SIRET complet, dès réception du Kbis (108 498 734 correspond au SIREN, 9 chiffres — le SIRET ajoute 5 chiffres d'établissement).</div>
+      <p>
+        RCS : Libourne<br>
+        Numéro de TVA intracommunautaire : Non applicable — WinWin bénéficie de la franchise en base de TVA (article 293 B du Code général des impôts). La TVA n'est pas facturée sur les prestations.
+      </p>
+      <p>
+        <strong>Contact</strong> : <a href="mailto:bonjour@winwinapp.fr">bonjour@winwinapp.fr</a><br>
+        <strong>Directrice de la publication</strong> : Ndeye-Matty Sene
+      </p>
+
+      <h2>Hébergement</h2>
+      <p>
+        <strong>Hébergement du site</strong> :<br>
+        Vercel Inc.<br>
+        440 N Barranca Ave #4133, Covina, CA 91723, États-Unis
+      </p>
+      <p>
+        <strong>Hébergement des données applicatives</strong> :<br>
+        Supabase Inc. (infrastructure hébergée sur AWS, région Europe)
+      </p>
+      <p>
+        <strong>Traitement des paiements</strong> :<br>
+        Stripe Payments Europe, Ltd., 1 Grand Canal Street Lower, Dublin 2, Irlande
+      </p>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>L'ensemble des éléments présents sur le site winwinapp.fr (textes, logos, graphismes, structure, logiciels) est la propriété exclusive de WinWin, sauf mentions contraires. Toute reproduction, représentation, modification ou adaptation, totale ou partielle, sans autorisation écrite préalable de WinWin est interdite.</p>
+
+      <h2>Données personnelles</h2>
+      <p>Le traitement des données personnelles collectées via ce site est décrit dans notre <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+      <div class="legal-note"><b>À faire :</b> la page Politique de confidentialité n'existe pas encore sur le site — obligatoire au titre du RGPD, à créer avant le lancement public.</div>
+      <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, d'effacement et de portabilité de vos données, ainsi que d'un droit d'opposition et de limitation du traitement. Ces droits peuvent être exercés en écrivant à <a href="mailto:bonjour@winwinapp.fr">bonjour@winwinapp.fr</a>.</p>
+      <p>Vous disposez également du droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) — <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
+
+      <h2>Cookies</h2>
+      <p>Ce site utilise des cookies nécessaires à son fonctionnement (authentification, session) ainsi que, le cas échéant, des cookies de mesure d'audience. Vous pouvez configurer votre navigateur pour refuser les cookies non essentiels.</p>
+
+      <h2>Limitation de responsabilité</h2>
+      <p>WinWin s'efforce d'assurer l'exactitude des informations diffusées sur ce site, mais ne peut garantir l'absence totale d'erreurs ou d'inexactitudes. WinWin ne saurait être tenue responsable des dommages directs ou indirects résultant de l'accès ou de l'utilisation du site.</p>
+
+      <h2>Droit applicable</h2>
+      <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>winwinapp.fr</span>
+    <div class="footer-legal">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv.html">CGV</a>
+      <a href="remboursement.html">Remboursement</a>
+    </div>
+    <span>© 2026 WinWinApp — Tous droits réservés</span>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var burger = document.querySelector('.burger');
+    var links = document.querySelector('.nav-links');
+    if(burger){
+      burger.addEventListener('click', function(){
+        links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
