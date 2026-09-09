@@ -650,7 +650,9 @@
           <input type="checkbox" class="releve-checkbox" data-price="9.99">
           <span>+ Ajouter Relevé Prix (+9,99€/mois)</span>
         </label>
-        <a href="#contact" class="btn btn-dark-outline">Commencer</a>
+        <button type="button" class="btn btn-dark-outline js-stripe-btn" data-plan="solo">S'abonner</button>
+        <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
+        <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
       <div class="price-card featured" data-base="35">
         <div class="tier">Pro</div>
@@ -664,12 +666,12 @@
           <li>Navigation Waze / Google Maps intégrée</li>
         </ul>
         <label class="releve-toggle">
-          <input type="checkbox" class="releve-checkbox" id="stripe-releve-checkbox" data-price="9.99">
+          <input type="checkbox" class="releve-checkbox" data-price="9.99">
           <span>+ Ajouter Relevé Prix, avec supervision multi-utilisateurs (+9,99€/mois/utilisateur)</span>
         </label>
-        <button type="button" id="stripe-checkout-btn" class="btn btn-tournee">S'abonner</button>
+        <button type="button" class="btn btn-tournee js-stripe-btn" data-plan="pro">S'abonner</button>
         <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
-        <div id="stripe-error" class="stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
+        <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
       <div class="price-card" data-base="">
         <div class="tier">Entreprise</div>
@@ -770,21 +772,24 @@
       document.getElementById('tarifs')?.scrollIntoView();
     }
 
-    // Bouton "S'abonner" (offre Pro) : crée une session Stripe Checkout via l'API publique Supabase
-    var stripeBtn = document.getElementById('stripe-checkout-btn');
-    if (stripeBtn) {
+    // Boutons "S'abonner" (Pro et DP/APM Solo) : crée une session Stripe Checkout
+    // via l'API publique Supabase. Le plan (pro/solo) et l'option Relevé Prix
+    // sont lus depuis la carte tarif contenant le bouton cliqué.
+    document.querySelectorAll('.js-stripe-btn').forEach(function(stripeBtn){
       stripeBtn.addEventListener('click', function(){
-        var releveCheckbox = document.getElementById('stripe-releve-checkbox');
-        var errorEl = document.getElementById('stripe-error');
+        var carte = stripeBtn.closest('.price-card');
+        var releveCheckbox = carte ? carte.querySelector('.releve-checkbox') : null;
+        var errorEl = carte ? carte.querySelector('.js-stripe-error') : null;
+        var plan = stripeBtn.dataset.plan === 'solo' ? 'solo' : 'pro';
         var originalText = stripeBtn.textContent;
-        errorEl.hidden = true;
+        if (errorEl) errorEl.hidden = true;
         stripeBtn.disabled = true;
         stripeBtn.textContent = 'Redirection...';
 
         fetch('https://baeglgpwriyvcerybbwj.supabase.co/functions/v1/create-checkout-session-public', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ releve_prix: !!(releveCheckbox && releveCheckbox.checked) })
+          body: JSON.stringify({ plan: plan, releve_prix: !!(releveCheckbox && releveCheckbox.checked) })
         })
           .then(function(res){ return res.json(); })
           .then(function(data){
@@ -795,12 +800,12 @@
             }
           })
           .catch(function(){
-            errorEl.hidden = false;
+            if (errorEl) errorEl.hidden = false;
             stripeBtn.disabled = false;
             stripeBtn.textContent = originalText;
           });
       });
-    }
+    });
   });
 </script>
 
