@@ -535,7 +535,7 @@
           <li>Agenda synchronisé, glisser-déposer, import Google Agenda</li>
           <li>Offres commerciales ponctuelles avec suivi des réponses</li>
         </ul>
-        <a href="https://tournee-app-iota.vercel.app" target="_blank" rel="noopener" class="btn btn-tournee">Essayer TournéeApp</a>
+        <a href="#tarifs" class="btn btn-tournee">Essayer TournéeApp</a>
       </div>
       <div class="product-card releve">
         <div class="product-top">
@@ -552,7 +552,7 @@
           <li>Recherche par nom d'établissement ou par CIP</li>
           <li>Vue superviseur pour les responsables d'équipe</li>
         </ul>
-        <a href="https://releve-prix.vercel.app" target="_blank" rel="noopener" class="btn btn-releve">Essayer Relevé Prix</a>
+        <a href="#tarifs" class="btn btn-releve">Essayer Relevé Prix</a>
       </div>
       <div class="product-card corp">
         <div class="product-top">
@@ -569,7 +569,7 @@
           <li>Import Excel en masse de la base clients</li>
           <li>Offres commerciales groupées avec suivi des réponses</li>
         </ul>
-        <a href="https://tournee-core.vercel.app" target="_blank" rel="noopener" class="btn btn-corp">Essayer TournéeApp Corp</a>
+        <a href="#tarif-entreprise" class="btn btn-corp">Essayer TournéeApp Corp</a>
       </div>
       <div class="product-card apm">
         <div class="product-top">
@@ -579,14 +579,14 @@
             <div class="tag">Attachés à la promotion du médicament</div>
           </div>
         </div>
-        <p class="pitch">La même organisation de tournée que TournéeApp, adaptée aux visites auprès des professionnels de santé prescripteurs — médecins, spécialistes, établissements.</p>
+        <p class="pitch">La même organisation de tournée que TournéeApp, adaptée aux visites auprès des professionnels de santé prescripteurs — médecins, spécialistes, établissements — et aux visites en pharmacie.</p>
         <ul class="product-feats">
-          <li>Itinéraire optimisé pour vos visites médicales</li>
+          <li>Itinéraire optimisé pour vos visites médicales et vos visites en pharmacie</li>
           <li>Suivi des échanges et du matériel promotionnel remis</li>
           <li>Relances et rendez-vous synchronisés avec votre agenda</li>
           <li>Reporting d'activité prêt pour votre laboratoire</li>
         </ul>
-        <a href="https://tourneeapm.vercel.app" target="_blank" rel="noopener" class="btn btn-apm">Essayer TournéeAPM</a>
+        <a href="#tarif-solo" class="btn btn-apm">Essayer TournéeAPM</a>
       </div>
     </div>
   </div>
@@ -647,7 +647,7 @@
       <div class="trial-badge">14 jours d'essai gratuit, sans engagement, sur toutes les formules</div>
     </div>
     <div class="pricing-grid">
-      <div class="price-card decoy" data-base="19.99">
+      <div class="price-card decoy" data-base="19.99" id="tarif-basic">
         <div class="tier">Tournée Basic</div>
         <div class="amount"><span class="amount-num">19,99</span>€ <span>/ mois</span></div>
         <div class="sub">Pour démarrer avec TournéeApp, l'essentiel de l'organisation</div>
@@ -664,7 +664,7 @@
         <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
         <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
-      <div class="price-card" data-base="19.99">
+      <div class="price-card" data-base="19.99" id="tarif-solo">
         <div class="tier">DP/APM Solo</div>
         <div class="amount"><span class="amount-num">19,99</span>€ <span>/ mois</span></div>
         <div class="sub">Pour un délégué ou un APM qui s'inscrit seul, sur son propre compte</div>
@@ -688,7 +688,7 @@
         <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
         <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
-      <div class="price-card featured" data-base="35">
+      <div class="price-card featured" data-base="35" id="tarif-pro">
         <div class="tier">Pro</div>
         <div class="amount"><span class="amount-num">35</span>€ <span>/ mois / utilisateur</span></div>
         <div class="sub">Pour une équipe qui veut aller plus vite</div>
@@ -711,7 +711,7 @@
         <div class="trial-note">14 jours d'essai gratuit · carte bancaire requise à l'inscription · aucun prélèvement avant la fin de l'essai</div>
         <div class="stripe-error js-stripe-error" hidden>Une erreur est survenue. Réessaie ou <a href="#contact">contacte-nous</a>.</div>
       </div>
-      <div class="price-card" data-base="">
+      <div class="price-card" data-base="" id="tarif-entreprise">
         <div class="tier">Entreprise</div>
         <div class="amount">Sur devis</div>
         <div class="sub">Pour un réseau de délégués, sur-mesure</div>
