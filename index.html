@@ -104,7 +104,7 @@
   .apps-menu > button{
     font-family:var(--body); font-size:14.5px; font-weight:600; color:var(--ink); background:none;
     border:1.5px solid var(--line-dark); border-radius:999px; padding:11px 20px; cursor:pointer;
-    display:flex; align-items:center; gap:8px; transition:border-color .15s, color .15s;
+    display:flex; align-items:center; gap:8px; transition:border-color .15s, color .15s; white-space:nowrap;
   }
   .apps-menu > button:hover{border-color:var(--tournee-deep); color:var(--tournee-deep);}
   .apps-dropdown{
@@ -144,6 +144,7 @@
   .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;}
   .hero h1{font-size:clamp(34px,4.4vw,54px); line-height:1.08; font-weight:700;}
   .hero h1 em{font-style:normal; color:var(--amber);}
+  .hero .tagline{font-size:19px; font-weight:600; color:var(--ink-soft); margin:14px 0 0;}
   .hero p.lead{font-size:17px; color:var(--ink-soft); max-width:480px; margin:22px 0 30px;}
   .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
 
@@ -353,6 +354,8 @@
   @media (max-width:860px){
     .nav-links{display:none;}
     .burger{display:block;}
+    .apps-menu > button{font-size:13px; padding:9px 14px; gap:6px;}
+    .nav{flex-wrap:wrap; row-gap:10px;}
     .hero-grid{grid-template-columns:1fr;}
     .problem-grid{grid-template-columns:1fr;}
     .products-grid{grid-template-columns:1fr;}
@@ -380,7 +383,7 @@
     </nav>
     <div class="nav-cta">
       <div class="apps-menu">
-        <button>Ouvrir une app ▾</button>
+        <button>Accéder à mon application ▾</button>
         <div class="apps-dropdown">
           <a href="https://tournee-app-iota.vercel.app" target="_blank" rel="noopener">
             <img src="data:image/png;base64,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BijMS0BgUuLJ7ASE6RmkMCcBASAiIDAhty4qEBBKMFBhPgICkxFLqhAQyjBYYS4CAkBEQGAibllUIiCUYsDCPAQEJiGOVCMglGPQwhwEBICIgMAE3KqoSEAoycCF8QQEBhNDqhIQyjJ4YSwBASAiIDCQWxSVCQilGcAwjoDAIOJHdQJCeQYxjCEgAEQEBAZwa6IDAaEFAxmOJyBwMLGjCwGhDYMZjiUgAEQEhFZmv4XMvj64hYAAEBEQOIjbB90ICO0Y1HAMAQEgIiC0NNstZLb1wBYEBICIgMDO3D7oSkBoy+CGfQkIABEBobXRt5DRPx/2JCAARAQEduL2QXcCQnsGOexDQACICAhLOPoW4tbDCgQEgIiAwMbcPliFgLAMgx22JSAARASEpex9C3HLYSUCAkBEQGAjbh+sRkBYjkEP2xAQACICwpK2voW41bAiAQEgIiBwJ7cPViUgLMvgh/sICAARAWFp995C3GJYmYAAEBEQlpfeItw+WJ2AABAREAAiAgKn219HeX0FAgJASEDgT9feKtw+4P8EBICIgAAQERB459LrKa+v4B8CAkBEQODMR7cMtw/4NwEBICIgAEQEBH7i/HWV11fwXwICQERA4AN/3TrcPuDnBASAyMPj0/Pb6EUAUI8bCAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAiAgJAREAAiAgIABEBASAiIABEBASAiIAAEBEQACICAkBEQACICAgAEQEBICIgAEQEBICIgAAQERAAIgICQERAAIgICAARAQEgIiAARAQEgIiAABAREAAi/wMPJgFbv7KydAAAAABJRU5ErkJggg==" alt=""> TournéeApp
@@ -404,8 +407,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Outils terrain · délégués pharmaceutiques et attachés à la promotion du médicament (DP et APM)</div>
-      <h1>Construits par un délégué, <em>pour des délégués</em>.</h1>
+      <div class="eyebrow">APPLICATION TERRAIN · DÉLÉGUÉS PHARMACEUTIQUES · APM · COMMERCIAUX SANTÉ</div>
+      <h1>L'application de tournée conçue pour les délégués pharmaceutiques</h1>
+      <p class="tagline">Construite par un délégué, pour des délégués.</p>
       <p class="lead">WinWinApp édite des outils nés sur le terrain, pas dans un bureau : TournéeApp organise vos tournées et vos rendez-vous, Relevé Prix transforme une photo de rayon en relevé de prix exploitable. Vous restez concentré(e) sur votre cœur de métier...</p>
       <div class="hero-ctas">
         <a href="#produits" class="btn btn-amber">Découvrir les trois outils</a>
